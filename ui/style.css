@@ -3,7 +3,14 @@ body {
     background-color: lightgrey;
     margin-top: 75px;
 }
+ .booya{
+max-width:300px;
+padding-right:20px;
+color:"blue";
+font-family:"sans-serif";
+                }
 
+       
 .center {
     text-align: center;
 }
