@@ -6,6 +6,12 @@ var element = document.getElementById('wub');
 element.innerHTML= 'new value';
 
 var pic = document.getElementById('madi');
+var marginLeft = 0;
+    function moveRight() {
+        marginLeft = marginLeft+10;
+        pic.style.marginLeft = marginLeft + 'px' ;
+    }
+
 pic.onclick = function() {
-    pic.style.marginLeft = "100px";
+    var interval = setInterval(moveRight, 100);
 }
