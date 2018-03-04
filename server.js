@@ -5,6 +5,34 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articleone = {
+    
+        Date:' 5 March 2018',
+        Day: 'Sunday',
+        Time: '9:00pm',
+       content: `<div class="booya"> <h3>HELLO HUMANS. <br> This is my very ver first WebApp <br> Unnecessary text to be followed.</h3> </div>`
+};
+
+var template = `
+  <html>
+    <head>
+        <title>Article One </title>
+                <link href="/ui/style.css" rel="stylesheet" />
+
+        
+    </head>
+    <body>
+        <a href="/"><h2>HOME</h2> </a>
+        <hr bgcolor="blue">
+        <h3>${Date}</h3><br>
+        <h3>${Day}</h3><br>
+        <h3>${Time}</h3>
+        ${content}
+    </body>
+</html>  
+`;
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
