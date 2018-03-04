@@ -7,12 +7,16 @@ app.use(morgan('combined'));
 
 var articleone = {
     
-        Date:' 5 March 2018',
-        Day: 'Sunday',
-        Time: '9:00pm',
+        date:' 5 March 2018',
+        day: 'Sunday',
+        time: '9:00pm',
        content: `<div class="booya"> <h3>HELLO HUMANS. <br> This is my very ver first WebApp <br> Unnecessary text to be followed.</h3> </div>`
 };
-
+function createTemplate (data){
+    var date=data.date;
+    var day= data.day;
+    var time=data.time;
+    var content=data.content;
 var template = `
   <html>
     <head>
@@ -24,22 +28,23 @@ var template = `
     <body>
         <a href="/"><h2>HOME</h2> </a>
         <hr bgcolor="blue">
-        <h3>${Date}</h3><br>
-        <h3>${Day}</h3><br>
-        <h3>${Time}</h3>
+        <h3>${date}</h3><br>
+        <h3>${day}</h3><br>
+        <h3>${time}</h3>
         ${content}
     </body>
 </html>  
 `;
-
-
+    return template;
+        }
+    
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 
 app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+  res.send(createTemplate(articleone));
 });
 
 app.get('/ui/style.css', function (req, res) {
