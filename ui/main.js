@@ -15,3 +15,11 @@ var marginLeft = 0;
 pic.onclick = function() {
     var interval = setInterval(moveRight, 100);
 }
+
+//button
+var button = document.getElementById('counter');
+button.onClick = function(){
+    counter = counter+1;
+    var span = document.getEelementById('count');
+    span.innerHTML = counter.toString();
+}
